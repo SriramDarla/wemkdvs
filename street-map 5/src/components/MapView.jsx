@@ -9,8 +9,9 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 const STYLE_URL     = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
 const PIPE_DATA_URL = '/data/pipes.geojson'
 const LEAK_DATA_URL = '/data/leaks.geojson'
-const PRIORITIES_URL = '/data/final_intervention_priorities.json'
+const PRIORITIES_URL  = '/data/final_intervention_priorities.json'
 const MODEL_PERF_URL  = '/data/model_performance.json'
+const INDIA_DATA_URL  = '/data/india_leaks.json'
 
 // Open at world view; L-TOWN data loads silently in the background.
 const START = { center: [10, 20], zoom: 2, pitch: 0, bearing: 0 }
@@ -461,6 +462,126 @@ function addScatteredLayer(map, leaks) {
   }
 }
 
+// ─── India real-data layer ────────────────────────────────────────────────────────────────
+function addIndiaLayer(map, geojson) {
+  if (map.getSource('india-leaks') || !geojson?.features?.length) return
+  map.addSource('india-leaks', { type: 'geojson', data: geojson, cluster: true, clusterRadius: 35, clusterMaxZoom: 6 })
+
+  // Clustered bubbles
+  map.addLayer({
+    id: 'india-clusters',
+    type: 'circle',
+    source: 'india-leaks',
+    filter: ['has', 'point_count'],
+    paint: {
+      'circle-color': ['step', ['get', 'point_count'], '#ffd166', 3, '#ff8c42', 6, '#ff3b3b'],
+      'circle-radius': ['step', ['get', 'point_count'], 12, 3, 16, 6, 22],
+      'circle-stroke-color': '#fff7d6',
+      'circle-stroke-width': 2,
+      'circle-opacity': 0.92,
+    },
+  })
+  map.addLayer({
+    id: 'india-cluster-count',
+    type: 'symbol',
+    source: 'india-leaks',
+    filter: ['has', 'point_count'],
+    layout: { 'text-field': '{point_count_abbreviated}', 'text-size': 12, 'text-font': ['Noto Sans Regular'] },
+    paint: { 'text-color': '#1a1020' },
+  })
+
+  // Individual points (unclustered)
+  map.addLayer({
+    id: 'india-points',
+    type: 'circle',
+    source: 'india-leaks',
+    filter: ['!', ['has', 'point_count']],
+    paint: {
+      // Size by NRW%: higher loss = bigger circle
+      'circle-radius': [
+        'interpolate', ['linear'], ['get', 'nrw_percent'],
+        16, 7, 40, 10, 60, 15,
+      ],
+      'circle-color': [
+        'match', ['get', 'Recommendation'],
+        'Critical Water Loss', '#ff3b3b',
+        'High Water Loss',     '#ff8c42',
+        'Investigate',         '#ffd166',
+        'Cost Efficient',      '#4cc38a',
+        '#e9f056',
+      ],
+      'circle-stroke-color': '#fff',
+      'circle-stroke-width': 1.8,
+      'circle-opacity': 0.95,
+    },
+  })
+
+  // Click popup for individual points
+  map.on('click', 'india-points', (e) => {
+    const f = e.features?.[0]
+    if (!f) return
+    const p = f.properties
+    const rec = p.Recommendation || 'Unknown'
+    const colors = {
+      'Critical Water Loss': { bg: '#ff3b3b', text: '#fff', bar: '#ff3b3b' },
+      'High Water Loss':     { bg: '#ff8c42', text: '#fff', bar: '#ff8c42' },
+      'Investigate':         { bg: '#ffd166', text: '#1a1020', bar: '#ffd166' },
+      'Cost Efficient':      { bg: '#4cc38a', text: '#1a1020', bar: '#4cc38a' },
+    }
+    const palette = colors[rec] || { bg: '#e9f056', text: '#1a1020', bar: '#e9f056' }
+    const loss = Number(p.loss_mld) || 0
+    const maxLoss = 175  // max zone-level MLD in dataset
+    const barPct = Math.min(100, (loss / maxLoss) * 100).toFixed(1)
+    const costFmt = (v) => {
+      const n = Number(v); if (!n) return '—'
+      if (n >= 1e7) return `₹${(n/1e7).toFixed(2)} Cr`
+      if (n >= 1e5) return `₹${(n/1e5).toFixed(1)} L`
+      return `₹${n.toLocaleString('en-IN')}`
+    }
+    const icon = rec === 'Critical Water Loss' ? '🔴' : rec === 'High Water Loss' ? '🟠' : rec === 'Investigate' ? '🟡' : '🟢'
+
+    const el = document.createElement('div')
+    el.className = 'incident-popup'
+    el.innerHTML = `
+      <div class="incident-header" style="background:${palette.bg};color:${palette.text}">
+        <span class="incident-icon">${icon}</span>
+        <div>
+          <div class="incident-rec">${rec}</div>
+          <div class="incident-pipe">${p.zone}, ${p.city}</div>
+        </div>
+      </div>
+      <div class="incident-body">
+        <div class="incident-stat"><span class="istat-label">State</span><span class="istat-value">${p.state}</span></div>
+        <div class="incident-stat"><span class="istat-label">NRW (water lost)</span><span class="istat-value" style="color:${palette.bar};font-size:1rem">${p.nrw_percent}%</span></div>
+        <div class="incident-stat"><span class="istat-label">Total supply</span><span class="istat-value">${p.supply_mld} MLD</span></div>
+        <div class="incident-stat"><span class="istat-label">Water lost daily</span><span class="istat-value">${loss.toFixed(1)} MLD</span></div>
+        <div class="incident-bar-wrap"><div class="incident-bar" style="width:${barPct}%;background:${palette.bar}"></div></div>
+        <div class="incident-stat"><span class="istat-label">Recoverable</span><span class="istat-value">${Number(p.Recoverable_ML_per_day||0).toFixed(1)} MLD</span></div>
+        <div class="incident-stat"><span class="istat-label">Est. rehab cost</span><span class="istat-value">${costFmt(p.Repair_Cost_INR)}</span></div>
+        <div class="incident-stat"><span class="istat-label">Data year</span><span class="istat-value">${p.year || '—'}</span></div>
+        <div class="incident-note">📊 ${p.source || 'CPHEEO / City utility report'}</div>
+      </div>`
+
+    new maplibregl.Popup({ maxWidth: '320px', className: 'incident-popup-wrap' })
+      .setLngLat(e.lngLat).setDOMContent(el).addTo(map)
+  })
+
+  // Cluster click → zoom in
+  map.on('click', 'india-clusters', (e) => {
+    const features = map.queryRenderedFeatures(e.point, { layers: ['india-clusters'] })
+    const clusterId = features[0]?.properties?.cluster_id
+    if (!clusterId) return
+    map.getSource('india-leaks').getClusterExpansionZoom(clusterId, (err, zoom) => {
+      if (!err) map.easeTo({ center: e.lngLat, zoom: zoom + 0.5, duration: 500 })
+    })
+  })
+
+  for (const id of ['india-points', 'india-clusters']) {
+    map.on('mouseenter', id, () => { map.getCanvas().style.cursor = 'pointer' })
+    map.on('mouseleave', id, () => { map.getCanvas().style.cursor = '' })
+  }
+}
+
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function MapView({ activeTab }) {
   const container   = useRef(null)
@@ -471,6 +592,7 @@ export default function MapView({ activeTab }) {
   const [showLeaks,      setShowLeaks]      = useState(true)
   const [showOSM,        setShowOSM]        = useState(true)
   const [showScattered,  setShowScattered]  = useState(true)
+  const [showIndia,      setShowIndia]      = useState(true)
   const [dataStatus,   setDataStatus]   = useState('Loading network data…')
   const [priorities,   setPriorities]   = useState([])
   const [modelPerf,    setModelPerf]    = useState([])
@@ -513,16 +635,18 @@ export default function MapView({ activeTab }) {
       // Re-attempt buildings on moveend so they appear when flying to a city
       map.on('moveend', () => add3DBuildings(map))
       try {
-        const [pipes, leaks, prios, perf] = await Promise.all([
+        const [pipes, leaks, prios, perf, indiaLeaks] = await Promise.all([
           loadJSON(PIPE_DATA_URL),
           loadJSON(LEAK_DATA_URL),
           loadJSON(PRIORITIES_URL).catch(() => []),
           loadJSON(MODEL_PERF_URL).catch(() => []),
+          loadJSON(INDIA_DATA_URL).catch(() => null),
         ])
         if (cancelled) return
 
         addNetworkLayers(map, pipes, leaks)
         addScatteredLayer(map, leaks)
+        if (indiaLeaks) addIndiaLayer(map, indiaLeaks)
         // Don't auto-fit to L-TOWN — user opened to world view intentionally
 
         setPriorities(prios)
@@ -567,10 +691,13 @@ export default function MapView({ activeTab }) {
       if (map.getLayer('scattered-clusters'))  map.setLayoutProperty('scattered-clusters',   'visibility', showScattered ? 'visible' : 'none')
       if (map.getLayer('scattered-count'))     map.setLayoutProperty('scattered-count',      'visibility', showScattered ? 'visible' : 'none')
       if (map.getLayer('scattered-points'))    map.setLayoutProperty('scattered-points',     'visibility', showScattered ? 'visible' : 'none')
+      if (map.getLayer('india-clusters'))      map.setLayoutProperty('india-clusters',       'visibility', showIndia    ? 'visible' : 'none')
+      if (map.getLayer('india-cluster-count')) map.setLayoutProperty('india-cluster-count',  'visibility', showIndia    ? 'visible' : 'none')
+      if (map.getLayer('india-points'))        map.setLayoutProperty('india-points',         'visibility', showIndia    ? 'visible' : 'none')
     }
     if (map.isStyleLoaded()) apply()
     else map.once('load', apply)
-  }, [showPipes, showLeaks, showOSM, showScattered])
+  }, [showPipes, showLeaks, showOSM, showScattered, showIndia])
 
   // ── Spin / tilt controls ────────────────────────────────────────────────────
   const toggleSpin = () => {
@@ -645,6 +772,7 @@ export default function MapView({ activeTab }) {
   }[rec] || '#e9f056')
 
   return (
+    <>
     <div className="map-window">
       {/* ── Map canvas (always mounted) ── */}
       <div ref={container} className="map-canvas" />
@@ -693,6 +821,10 @@ export default function MapView({ activeTab }) {
           <label className="map-layer-option">
               <input type="checkbox" checked={showScattered} onChange={(e) => setShowScattered(e.target.checked)} />
               <span className="layer-swatch layer-scattered" />Replica incidents
+            </label>
+          <label className="map-layer-option">
+            <input type="checkbox" checked={showIndia} onChange={(e) => setShowIndia(e.target.checked)} />
+            <span className="layer-swatch layer-india" />🇮🇳 India (real data)
             </label>
           <p className="map-layer-heading" style={{ marginTop: 8 }}>Leak severity</p>
           <span className="legend-row"><i className="legend-dot critical" />Critical</span>
@@ -828,6 +960,268 @@ export default function MapView({ activeTab }) {
           )}
         </div>
       )}
-    </div>
+    </div>{/* end map-window */}
+
+      {/* ── Below-map analytics dashboard ── */}
+      {activeTab === 'map' && summary && (
+        <section className="dash">
+
+          {/* ── Hero stats ── */}
+          <div className="dash-hero">
+            <div className="dash-hero-card dash-loss">
+              <div className="dash-hero-icon">ML</div>
+              <div>
+                <div className="dash-hero-val">{summary.totalLoss.toFixed(2)} <span className="dash-hero-unit">ML/day</span></div>
+                <div className="dash-hero-label">Estimated Water Loss</div>
+                <div className="dash-hero-sub">Across {summary.total} analysed pipes (L-TOWN Real dataset)</div>
+              </div>
+            </div>
+            <div className="dash-hero-card dash-recovery">
+              <div className="dash-hero-icon">REC</div>
+              <div>
+                <div className="dash-hero-val">
+                  {(summary.totalLoss * 0.6).toFixed(2)} <span className="dash-hero-unit">ML/day</span>
+                </div>
+                <div className="dash-hero-label">Potential Water Recovery</div>
+                <div className="dash-hero-sub">~60% recoverable via pipe rehabilitation (CPHEEO norms)</div>
+              </div>
+            </div>
+            <div className="dash-hero-card dash-cost">
+              <div className="dash-hero-icon">EST</div>
+              <div>
+                <div className="dash-hero-val">{fmtCost(summary.totalCost)}</div>
+                <div className="dash-hero-label">Total Repair Cost Est.</div>
+                <div className="dash-hero-sub">{summary.critical} critical · {summary.high} high-risk pipes</div>
+              </div>
+            </div>
+          </div>
+
+          {/* ── Top Intervention Priorities ── */}
+          {priorities.length > 0 && (
+            <div className="dash-section">
+              <h3 className="dash-section-title">Top Intervention Priorities</h3>
+              <p className="dash-section-sub">Ranked by predicted water loss. Click any pipe to fly to it on the map.</p>
+              <div className="dash-priority-chips">
+                {priorities.slice(0, 12).map((p, i) => {
+                  const id = p.Pipe || p.Leak_Location
+                  const isSelected = selectedPipe === id
+                  return (
+                    <button
+                      key={id}
+                      className={`dash-chip ${isSelected ? 'dash-chip-active' : ''}`}
+                      style={{ '--chip-color': recColor(p.Recommendation) }}
+                      onClick={() => flyToPipe(p)}
+                    >
+                      <span className="dash-chip-rank">#{i + 1}</span>
+                      <span className="dash-chip-id">{id}</span>
+                      <span className="dash-chip-loss">{fmtML(p.Predicted_Loss_ML_per_day)}</span>
+                    </button>
+                  )
+                })}
+              </div>
+
+              {/* Full priority table */}
+              <details className="dash-details">
+                <summary className="dash-details-toggle">Show full priority table ({priorities.length} pipes)</summary>
+                <div className="priority-table-wrap" style={{ marginTop: 12 }}>
+                  <table className="priority-table">
+                    <thead>
+                      <tr><th>#</th><th>Pipe</th><th>Region</th><th>Loss</th><th>Repair Cost</th><th>Recommendation</th></tr>
+                    </thead>
+                    <tbody>
+                      {priorities.map((p, i) => {
+                        const id = p.Pipe || p.Leak_Location
+                        return (
+                          <tr
+                            key={id}
+                            className={`priority-row${selectedPipe === id ? ' selected' : ''}`}
+                            onClick={() => flyToPipe(p)}
+                          >
+                            <td>{i + 1}</td>
+                            <td><code>{id}</code></td>
+                            <td>{p.Network_Region}</td>
+                            <td>{fmtML(p.Predicted_Loss_ML_per_day)}</td>
+                            <td>{fmtCost(p.Repair_Cost_INR)}</td>
+                            <td>
+                              <span className="rec-badge" style={{ background: recColor(p.Recommendation) }}>
+                                {p.Recommendation}
+                              </span>
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </details>
+            </div>
+          )}
+
+          {/* ── Regional Loss Breakdown ── */}
+          {priorities.length > 0 && (() => {
+            const regionMap = {}
+            priorities.forEach((p) => {
+              const r = p.Network_Region || 'Unknown'
+              if (!regionMap[r]) regionMap[r] = { loss: 0, count: 0, cost: 0 }
+              regionMap[r].loss  += Number(p.Predicted_Loss_ML_per_day) || 0
+              regionMap[r].count += 1
+              regionMap[r].cost  += Number(p.Repair_Cost_INR) || 0
+            })
+            const regions = Object.entries(regionMap).sort((a, b) => b[1].loss - a[1].loss)
+            const maxLoss  = regions[0]?.[1]?.loss || 1
+            return (
+              <div className="dash-section">
+                <h3 className="dash-section-title">Regional Loss Breakdown</h3>
+                <p className="dash-section-sub">Total predicted water loss (ML/day) per network region</p>
+                <div className="dash-region-bars">
+                  {regions.map(([name, data]) => (
+                    <div key={name} className="dash-region-row">
+                      <div className="dash-region-label">{name}</div>
+                      <div className="dash-region-track">
+                        <div
+                          className="dash-region-fill"
+                          style={{ width: `${(data.loss / maxLoss) * 100}%` }}
+                        />
+                      </div>
+                      <div className="dash-region-stats">
+                        <span className="dash-region-val">{data.loss.toFixed(3)} ML/day</span>
+                        <span className="dash-region-meta">{data.count} pipes · {fmtCost(data.cost)}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          })()}
+
+          {/* ── Intervention Details (pipe selected) ── */}
+          {selectedPipe && (() => {
+            const pipe = priorities.find((p) => (p.Pipe || p.Leak_Location) === selectedPipe)
+            if (!pipe) return null
+            const perf = modelPerf.find((r) => r.Leak_Location === selectedPipe)
+            return (
+              <div className="dash-section dash-detail-panel">
+                <h3 className="dash-section-title">Intervention Details — <code>{selectedPipe}</code></h3>
+                <div className="dash-detail-grid">
+                  <div className="dash-detail-item">
+                    <div className="dash-detail-label">Recommendation</div>
+                    <div>
+                      <span className="rec-badge" style={{ background: recColor(pipe.Recommendation), fontSize: '0.9rem', padding: '4px 12px' }}>
+                        {pipe.Recommendation}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="dash-detail-item">
+                    <div className="dash-detail-label">Predicted Water Loss</div>
+                    <div className="dash-detail-val">{fmtML(pipe.Predicted_Loss_ML_per_day)}</div>
+                  </div>
+                  <div className="dash-detail-item">
+                    <div className="dash-detail-label">Recoverable</div>
+                    <div className="dash-detail-val">{fmtML(pipe.Recoverable_ML_per_day)}</div>
+                  </div>
+                  <div className="dash-detail-item">
+                    <div className="dash-detail-label">Repair Cost Est.</div>
+                    <div className="dash-detail-val">{fmtCost(pipe.Repair_Cost_INR)}</div>
+                  </div>
+                  <div className="dash-detail-item">
+                    <div className="dash-detail-label">Network Region</div>
+                    <div className="dash-detail-val">{pipe.Network_Region}</div>
+                  </div>
+                  <div className="dash-detail-item">
+                    <div className="dash-detail-label">Region Priority</div>
+                    <div className="dash-detail-val">#{pipe.Region_Priority}</div>
+                  </div>
+                  {perf && (
+                    <>
+                      <div className="dash-detail-item">
+                        <div className="dash-detail-label">Model MAE</div>
+                        <div className="dash-detail-val">{Number(perf.Model_MAE).toFixed(4)}</div>
+                      </div>
+                      <div className="dash-detail-item">
+                        <div className="dash-detail-label">Model vs Baseline</div>
+                        <div className="dash-detail-val" style={{ color: '#4cc38a' }}>
+                          +{Number(perf['Improvement_%']).toFixed(1)}% better
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            )
+          })()}
+
+          {/* ── Model Performance ── */}
+          {modelPerf.length > 0 && (
+            <details className="dash-section dash-details" open={false}>
+              <summary className="dash-details-toggle dash-section-title">Model Performance</summary>
+              <p className="dash-section-sub" style={{ marginTop: 6 }}>
+                Gradient Boosting — MAE per pipe vs. naïve baseline (predict mean). Lower MAE = better.
+              </p>
+              <div className="dash-model-bars">
+                {modelPerf.map((r) => {
+                  const imp = Number(r['Improvement_%'])
+                  const modelMAE = Number(r.Model_MAE)
+                  const baseMAE  = Number(r.Baseline_MAE)
+                  const maxMAE   = Math.max(modelMAE, baseMAE)
+                  return (
+                    <div key={r.Leak_Location} className="dash-model-row">
+                      <code className="dash-model-pipe">{r.Leak_Location}</code>
+                      <div className="dash-model-bars-inner">
+                        <div className="dash-model-bar-label">Model</div>
+                        <div className="dash-model-track">
+                          <div className="dash-model-fill model-fill" style={{ width: `${(modelMAE / maxMAE) * 100}%` }} />
+                        </div>
+                        <span className="dash-model-num">{modelMAE.toFixed(4)}</span>
+                        <div className="dash-model-bar-label">Baseline</div>
+                        <div className="dash-model-track">
+                          <div className="dash-model-fill baseline-fill" style={{ width: '100%' }} />
+                        </div>
+                        <span className="dash-model-num">{baseMAE.toFixed(4)}</span>
+                      </div>
+                      <span className="dash-model-imp" style={{ color: imp > 50 ? '#4cc38a' : imp > 0 ? '#ffd166' : '#ff8c42' }}>
+                        +{imp.toFixed(1)}%
+                      </span>
+                    </div>
+                  )
+                })}
+              </div>
+            </details>
+          )}
+
+          {/* ── Data & Assumptions ── */}
+          <details className="dash-section dash-details">
+            <summary className="dash-details-toggle dash-section-title">Data & Assumptions</summary>
+            <div className="dash-assumptions">
+              <div className="dash-assumption-row">
+                <span className="dash-assumption-key">L-TOWN Dataset</span>
+                <span className="dash-assumption-val">Synthetic benchmark network (BattLeDIM 2020). Pipe coordinates are normalised around (0, 0) and placed at world origin.</span>
+              </div>
+              <div className="dash-assumption-row">
+                <span className="dash-assumption-key">Detection Model</span>
+                <span className="dash-assumption-val">Gradient Boosting Regressor trained on SCADA pressure & flow time-series. Predicts daily water loss (ML/day) per pipe segment.</span>
+              </div>
+              <div className="dash-assumption-row">
+                <span className="dash-assumption-key">Repair Cost</span>
+                <span className="dash-assumption-val">Estimated at ₹15L per ML/day of recoverable loss (CPHEEO pipe rehabilitation norms). Actual costs vary by diameter, depth, and soil.</span>
+              </div>
+              <div className="dash-assumption-row">
+                <span className="dash-assumption-key">Recovery Rate</span>
+                <span className="dash-assumption-val">~60% of predicted loss assumed recoverable via targeted pipe rehabilitation (residual = authorised consumption uncertainty).</span>
+              </div>
+              <div className="dash-assumption-row">
+                <span className="dash-assumption-key">India Data</span>
+                <span className="dash-assumption-val">80 zone-level data points, 35 cities. Source: CPHEEO Benchmarking 2022-23, DJB, BWSSB, MCGM, HMWSSB, CMWSSB, PHED Bihar, Smart Cities Mission, World Bank 2022.</span>
+              </div>
+              <div className="dash-assumption-row">
+                <span className="dash-assumption-key">Global Replicas</span>
+                <span className="dash-assumption-val">600 deterministic synthetic points (seeded RNG) derived from L-TOWN leak data, distributed across 120 simulated global city clusters for illustrative purposes only.</span>
+              </div>
+            </div>
+          </details>
+
+        </section>
+      )}
+
+    </>
   )
 }

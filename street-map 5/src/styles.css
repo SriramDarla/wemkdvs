@@ -323,13 +323,21 @@ h1, h2, h3 { font-family: var(--display); margin: 0; }
 }
 
 /* ---------- Map page ---------- */
-.map-main { flex: 1; padding: 20px 28px 28px; display: flex; }
+.map-main {
+  flex: 1;
+  padding: 20px 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+}
 
 .map-window {
   position: relative;
-  flex: 1;
-  min-height: 420px;
+  width: 100%;
   height: calc(100vh - 120px);
+  min-height: 420px;
+  flex-shrink: 0;
   border-radius: 24px;
   overflow: hidden;
   background: var(--ink);
@@ -460,6 +468,7 @@ h1, h2, h3 { font-family: var(--display); margin: 0; }
 .layer-leaks { width: 11px; height: 11px; border-radius: 50%; background: #ff3b3b; border: 2px solid #fff7d6; }
 .layer-osm      { background: #4fa8ff; }
 .layer-scattered{ background: linear-gradient(90deg, #ffd166 0%, #ff8c42 50%, #ff3b3b 100%); }
+.layer-india    { background: linear-gradient(90deg, #ff9933 0 33%, #fff 33% 66%, #138808 66%); border: 1px solid #aaa; }
 .legend-row  { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 0.74rem; }
 .osm-badge   { margin: 4px 0 0; font-size: 0.7rem; color: #62c9ff; word-break: break-word; }
 .map-legend span { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.76rem; }
@@ -498,7 +507,205 @@ h1, h2, h3 { font-family: var(--display); margin: 0; }
 .incident-note { margin-top: 4px; font-size: 0.7rem; color: #a08090; border-top: 1px solid #f0e8ec; padding-top: 6px; }
 .maplibregl-popup-content { border-radius: 12px !important; padding: 12px 14px !important; }
 
+/* ─── Below-map analytics dashboard ────────────────────────────────────────── */
+.dash {
+  background: var(--lime);          /* wasabi #e9f056 */
+  color: var(--ink);
+  padding: 32px 28px 48px;
+  margin-top: 20px;
+  margin-bottom: 24px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Hero stat cards */
+.dash-hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.dash-hero-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(53, 30, 40, 0.07);
+  border-radius: 14px;
+  padding: 20px 22px;
+  border-left: 4px solid transparent;
+  transition: transform 0.18s;
+}
+.dash-hero-card:hover { transform: translateY(-2px); }
+.dash-loss     { border-color: var(--ink-deep); }
+.dash-recovery { border-color: var(--ink); }
+.dash-cost     { border-color: var(--ink-lift); }
+.dash-hero-icon {
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: var(--lime);
+  background: var(--ink-deep);
+  border-radius: 8px;
+  padding: 6px 10px;
+  flex-shrink: 0;
+  line-height: 1;
+  align-self: flex-start;
+}
+.dash-hero-val  {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--ink-deep);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+.dash-hero-unit  { font-size: 0.9rem; font-weight: 700; color: var(--ink-lift); }
+.dash-hero-label { font-size: 0.78rem; font-weight: 900; color: var(--ink); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em; }
+.dash-hero-sub   { font-size: 0.7rem; color: rgba(53,30,40,0.55); margin-top: 3px; }
+
+/* Section wrapper */
+.dash-section {
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 14px;
+  padding: 20px 22px;
+  backdrop-filter: blur(4px);
+}
+.dash-section-title {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--ink-deep);
+  margin: 0 0 4px;
+  cursor: pointer;
+  user-select: none;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.dash-section-sub {
+  font-size: 0.75rem;
+  color: var(--ink-lift);
+  margin: 0 0 14px;
+}
+
+/* Priority chips */
+.dash-priority-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.dash-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: rgba(53,30,40,0.06);
+  border: 1.5px solid var(--chip-color, #351e28);
+  color: var(--ink);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.12s;
+}
+.dash-chip:hover      { background: rgba(53,30,40,0.12); transform: translateY(-1px); }
+.dash-chip-active     { background: var(--chip-color, #351e28) !important; color: #fff !important; }
+.dash-chip-rank       { font-weight: 800; opacity: 0.6; }
+.dash-chip-id         { font-family: monospace; font-weight: 700; }
+.dash-chip-loss       { background: rgba(53,30,40,0.12); border-radius: 999px; padding: 1px 7px; font-size: 0.7rem; }
+
+/* Details/accordion */
+.dash-details { border: none; background: none; }
+.dash-details summary { list-style: none; }
+.dash-details summary::-webkit-details-marker { display: none; }
+.dash-details-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--ink-deep);
+  font-size: 1.05rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-bottom: 4px;
+}
+.dash-details-toggle::after {
+  content: '›';
+  margin-left: auto;
+  font-size: 1.2rem;
+  transition: transform 0.2s;
+  color: var(--ink-lift);
+}
+details[open] .dash-details-toggle::after { transform: rotate(90deg); }
+
+/* Regional bars */
+.dash-region-bars { display: flex; flex-direction: column; gap: 10px; }
+.dash-region-row  { display: grid; grid-template-columns: 100px 1fr 200px; gap: 10px; align-items: center; }
+.dash-region-label{ font-size: 0.78rem; color: var(--ink-lift); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dash-region-track{
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(53,30,40,0.12);
+  overflow: hidden;
+}
+.dash-region-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ink-deep) 0%, var(--ink-lift) 100%);
+  transition: width 0.6s cubic-bezier(.22,1,.36,1);
+}
+.dash-region-stats{ display: flex; flex-direction: column; gap: 1px; }
+.dash-region-val  { font-size: 0.8rem; font-weight: 700; color: var(--ink); }
+.dash-region-meta { font-size: 0.68rem; color: var(--ink-lift); }
+
+/* Intervention detail panel */
+.dash-detail-panel { border: 1.5px solid rgba(53,30,40,0.25); }
+.dash-detail-grid  {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
+.dash-detail-item  { background: rgba(53,30,40,0.06); border-radius: 8px; padding: 10px 12px; }
+.dash-detail-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-lift); margin-bottom: 5px; }
+.dash-detail-val   { font-size: 1rem; font-weight: 700; color: var(--ink); }
+
+/* Model performance bars */
+.dash-model-bars      { display: flex; flex-direction: column; gap: 14px; margin-top: 10px; }
+.dash-model-row       { display: grid; grid-template-columns: 80px 1fr 64px; gap: 10px; align-items: center; }
+.dash-model-pipe      { font-size: 0.72rem; color: var(--ink-lift); }
+.dash-model-bars-inner{
+  display: grid;
+  grid-template-columns: 52px 1fr 56px;
+  gap: 4px 6px;
+  align-items: center;
+}
+.dash-model-bar-label { font-size: 0.65rem; color: var(--ink-lift); text-align: right; }
+.dash-model-track     { height: 6px; background: rgba(53,30,40,0.12); border-radius: 999px; overflow: hidden; }
+.dash-model-fill      { height: 100%; border-radius: 999px; transition: width 0.5s; }
+.model-fill    { background: var(--ink-deep); }
+.baseline-fill { background: rgba(53,30,40,0.35); }
+.dash-model-num{ font-size: 0.68rem; color: var(--ink-lift); }
+.dash-model-imp{ font-size: 0.82rem; font-weight: 900; text-align: right; }
+
+/* Data & Assumptions */
+.dash-assumptions     { display: flex; flex-direction: column; gap: 0; margin-top: 12px; }
+.dash-assumption-row  {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(53,30,40,0.1);
+  font-size: 0.78rem;
+}
+.dash-assumption-row:last-child { border-bottom: none; }
+.dash-assumption-key  { font-weight: 900; color: var(--ink-deep); }
+.dash-assumption-val  { color: var(--ink-lift); line-height: 1.5; }
+
+
+
+
 /* ─── Bottom-right tilt + spin controls ─────────────────────────────────────── */
+
 .map-controls-br {
   position: absolute;
   bottom: 36px;
