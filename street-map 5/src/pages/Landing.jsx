@@ -35,6 +35,7 @@ export default function Landing() {
         </a>
         <nav>
           <a href="#features" className="nav-link">Features</a>
+          <a href="#/ltown" className="nav-link">L-Town Benchmark</a>
           <a href="#/intervention" className="nav-link">Intervention Lab</a>
           <a href="#/map" className="nav-cta">Explore Map</a>
         </nav>
