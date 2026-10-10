@@ -1,0 +1,386 @@
+[
+  {
+    "name": "p227",
+    "type": "flow",
+    "unit": "m3/h",
+    "description": "Flow meter measurement on pipe p227",
+    "min": 25.86,
+    "max": 205.44,
+    "mean": 126.68,
+    "nominal_default": 146.72
+  },
+  {
+    "name": "p235",
+    "type": "flow",
+    "unit": "m3/h",
+    "description": "Flow meter measurement on pipe p235",
+    "min": 25.2,
+    "max": 194.35,
+    "mean": 124.14,
+    "nominal_default": 128.46
+  },
+  {
+    "name": "PUMP_1",
+    "type": "flow",
+    "unit": "m3/h",
+    "description": "Flow meter measurement on pipe PUMP_1",
+    "min": 0.0,
+    "max": 44.38,
+    "mean": 34.13,
+    "nominal_default": 43.72
+  },
+  {
+    "name": "n1",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n1",
+    "min": 25.72,
+    "max": 29.22,
+    "mean": 28.03,
+    "nominal_default": 28.44
+  },
+  {
+    "name": "n4",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n4",
+    "min": 30.71,
+    "max": 34.28,
+    "mean": 33.15,
+    "nominal_default": 33.55
+  },
+  {
+    "name": "n31",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n31",
+    "min": 34.77,
+    "max": 37.54,
+    "mean": 36.51,
+    "nominal_default": 36.89
+  },
+  {
+    "name": "n54",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n54",
+    "min": 33.58,
+    "max": 38.23,
+    "mean": 36.02,
+    "nominal_default": 35.65
+  },
+  {
+    "name": "n105",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n105",
+    "min": 48.79,
+    "max": 50.93,
+    "mean": 49.98,
+    "nominal_default": 49.96
+  },
+  {
+    "name": "n114",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n114",
+    "min": 51.96,
+    "max": 54.46,
+    "mean": 53.36,
+    "nominal_default": 53.28
+  },
+  {
+    "name": "n163",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n163",
+    "min": 49.38,
+    "max": 53.3,
+    "mean": 51.54,
+    "nominal_default": 51.38
+  },
+  {
+    "name": "n188",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n188",
+    "min": 52.14,
+    "max": 56.03,
+    "mean": 54.31,
+    "nominal_default": 54.18
+  },
+  {
+    "name": "n215",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n215",
+    "min": 39.01,
+    "max": 39.1,
+    "mean": 39.08,
+    "nominal_default": 39.07
+  },
+  {
+    "name": "n229",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n229",
+    "min": 49.07,
+    "max": 53.32,
+    "mean": 51.4,
+    "nominal_default": 51.06
+  },
+  {
+    "name": "n288",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n288",
+    "min": 49.79,
+    "max": 53.29,
+    "mean": 51.81,
+    "nominal_default": 51.39
+  },
+  {
+    "name": "n296",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n296",
+    "min": 40.15,
+    "max": 42.76,
+    "mean": 41.81,
+    "nominal_default": 41.67
+  },
+  {
+    "name": "n332",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n332",
+    "min": 54.26,
+    "max": 56.94,
+    "mean": 55.74,
+    "nominal_default": 55.72
+  },
+  {
+    "name": "n342",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n342",
+    "min": 43.38,
+    "max": 47.54,
+    "mean": 45.64,
+    "nominal_default": 45.36
+  },
+  {
+    "name": "n410",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n410",
+    "min": 27.24,
+    "max": 32.07,
+    "mean": 29.79,
+    "nominal_default": 29.44
+  },
+  {
+    "name": "n415",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n415",
+    "min": 42.61,
+    "max": 46.39,
+    "mean": 44.65,
+    "nominal_default": 44.49
+  },
+  {
+    "name": "n429",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n429",
+    "min": 33.22,
+    "max": 37.76,
+    "mean": 35.65,
+    "nominal_default": 35.29
+  },
+  {
+    "name": "n458",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n458",
+    "min": 40.22,
+    "max": 44.31,
+    "mean": 42.46,
+    "nominal_default": 42.27
+  },
+  {
+    "name": "n469",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n469",
+    "min": 45.78,
+    "max": 47.95,
+    "mean": 47.0,
+    "nominal_default": 46.98
+  },
+  {
+    "name": "n495",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n495",
+    "min": 50.42,
+    "max": 52.0,
+    "mean": 51.29,
+    "nominal_default": 51.28
+  },
+  {
+    "name": "n506",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n506",
+    "min": 51.62,
+    "max": 53.99,
+    "mean": 52.94,
+    "nominal_default": 52.92
+  },
+  {
+    "name": "n516",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n516",
+    "min": 52.48,
+    "max": 55.39,
+    "mean": 54.14,
+    "nominal_default": 54.1
+  },
+  {
+    "name": "n519",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n519",
+    "min": 44.65,
+    "max": 48.29,
+    "mean": 46.64,
+    "nominal_default": 46.52
+  },
+  {
+    "name": "n549",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n549",
+    "min": 52.12,
+    "max": 55.38,
+    "mean": 54.01,
+    "nominal_default": 53.99
+  },
+  {
+    "name": "n613",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n613",
+    "min": 52.74,
+    "max": 56.9,
+    "mean": 55.06,
+    "nominal_default": 54.91
+  },
+  {
+    "name": "n636",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n636",
+    "min": 42.71,
+    "max": 46.13,
+    "mean": 44.6,
+    "nominal_default": 44.33
+  },
+  {
+    "name": "n644",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n644",
+    "min": 44.22,
+    "max": 48.24,
+    "mean": 46.5,
+    "nominal_default": 46.08
+  },
+  {
+    "name": "n679",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n679",
+    "min": 44.49,
+    "max": 47.82,
+    "mean": 46.39,
+    "nominal_default": 46.04
+  },
+  {
+    "name": "n722",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n722",
+    "min": 43.86,
+    "max": 46.49,
+    "mean": 45.42,
+    "nominal_default": 45.19
+  },
+  {
+    "name": "n726",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n726",
+    "min": 44.4,
+    "max": 47.55,
+    "mean": 46.19,
+    "nominal_default": 45.87
+  },
+  {
+    "name": "n740",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n740",
+    "min": 42.68,
+    "max": 43.98,
+    "mean": 43.45,
+    "nominal_default": 43.3
+  },
+  {
+    "name": "n752",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n752",
+    "min": 46.31,
+    "max": 49.61,
+    "mean": 48.2,
+    "nominal_default": 47.83
+  },
+  {
+    "name": "n769",
+    "type": "pressure",
+    "unit": "m",
+    "description": "Pressure head sensor at junction node n769",
+    "min": 46.39,
+    "max": 48.83,
+    "mean": 47.78,
+    "nominal_default": 47.42
+  },
+  {
+    "name": "hour",
+    "type": "time",
+    "unit": "h",
+    "min": 0,
+    "max": 23,
+    "nominal_default": 23
+  },
+  {
+    "name": "day_of_week",
+    "type": "time",
+    "unit": "day",
+    "min": 0,
+    "max": 6,
+    "nominal_default": 1
+  },
+  {
+    "name": "month",
+    "type": "time",
+    "unit": "month",
+    "min": 1,
+    "max": 12,
+    "nominal_default": 12
+  }
+]
