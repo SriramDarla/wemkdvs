@@ -20,6 +20,10 @@ export default function MapPage() {
             onClick={() => setActiveTab('pipeline')}
           >🤖 ML Pipeline</button>
           <a
+            href="#/ltown"
+            className="nav-tab nav-tab-link"
+          >🔬 L-Town Lab</a>
+          <a
             href="#/intervention"
             className="nav-tab nav-tab-link"
           >🧪 Intervention Lab</a>
