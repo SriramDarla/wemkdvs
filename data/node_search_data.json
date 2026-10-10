@@ -1,0 +1,868 @@
+[
+  {
+    "Node_ID": "n155",
+    "City": "Bengaluru",
+    "Area": "Akshayanagar",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p119",
+        "Start_Node": "n144",
+        "End_Node": "n155",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p123",
+        "Start_Node": "n155",
+        "End_Node": "n159",
+        "Is_Candidate": true,
+        "Network_Region": 3.0,
+        "Predicted_Loss_ML_per_day": 0.7819200000000002,
+        "Recoverable_ML_per_day": 0.6255360000000001,
+        "Repair_Cost_INR": 500000.0,
+        "Recoverable_ML_per_1Lakh": 0.1251072,
+        "Recommendation": "High Water Loss"
+      },
+      {
+        "Pipe": "p557",
+        "Start_Node": "n155",
+        "End_Node": "n542",
+        "Is_Candidate": false
+      }
+    ]
+  },
+  {
+    "Node_ID": "n159",
+    "City": "Bengaluru",
+    "Area": "Akshayanagar",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p84",
+        "Start_Node": "n162",
+        "End_Node": "n159",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p123",
+        "Start_Node": "n155",
+        "End_Node": "n159",
+        "Is_Candidate": true,
+        "Network_Region": 3.0,
+        "Predicted_Loss_ML_per_day": 0.7819200000000002,
+        "Recoverable_ML_per_day": 0.6255360000000001,
+        "Repair_Cost_INR": 500000.0,
+        "Recoverable_ML_per_1Lakh": 0.1251072,
+        "Recommendation": "High Water Loss"
+      },
+      {
+        "Pipe": "p570",
+        "Start_Node": "n159",
+        "End_Node": "n551",
+        "Is_Candidate": false
+      }
+    ]
+  },
+  {
+    "Node_ID": "n19",
+    "City": "Bengaluru",
+    "Area": "JP Nagar",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p250",
+        "Start_Node": "n19",
+        "End_Node": "n345",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p277",
+        "Start_Node": "n363",
+        "End_Node": "n19",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 0.6298283999999998,
+        "Recoverable_ML_per_day": 0.5038627199999999,
+        "Repair_Cost_INR": 200000.0,
+        "Recoverable_ML_per_1Lakh": 0.2519313599999999,
+        "Recommendation": "Cost Efficient"
+      },
+      {
+        "Pipe": "p289",
+        "Start_Node": "n19",
+        "End_Node": "n371",
+        "Is_Candidate": false
+      }
+    ]
+  },
+  {
+    "Node_ID": "n228",
+    "City": "Bengaluru",
+    "Area": "Bannerghatta Road",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p156",
+        "Start_Node": "n228",
+        "End_Node": "n232",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p710",
+        "Start_Node": "n648",
+        "End_Node": "n228",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 0.4717403999999983,
+        "Recoverable_ML_per_day": 0.3773923199999986,
+        "Repair_Cost_INR": 500000.0,
+        "Recoverable_ML_per_1Lakh": 0.0754784639999997,
+        "Recommendation": "Investigate"
+      },
+      {
+        "Pipe": "p724",
+        "Start_Node": "n228",
+        "End_Node": "n658",
+        "Is_Candidate": false
+      }
+    ]
+  },
+  {
+    "Node_ID": "n23",
+    "City": "Bengaluru",
+    "Area": "Arekere",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p251",
+        "Start_Node": "n23",
+        "End_Node": "n31",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p252",
+        "Start_Node": "n20",
+        "End_Node": "n23",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p280",
+        "Start_Node": "n365",
+        "End_Node": "n23",
+        "Is_Candidate": true,
+        "Network_Region": 3.0,
+        "Predicted_Loss_ML_per_day": 0.4501905142857144,
+        "Recoverable_ML_per_day": 0.3601524114285715,
+        "Repair_Cost_INR": 200000.0,
+        "Recoverable_ML_per_1Lakh": 0.1800762057142857,
+        "Recommendation": "Investigate"
+      },
+      {
+        "Pipe": "p299",
+        "Start_Node": "n23",
+        "End_Node": "n377",
+        "Is_Candidate": false
+      }
+    ]
+  },
+  {
+    "Node_ID": "n233",
+    "City": "Bengaluru",
+    "Area": "Arekere",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p74",
+        "Start_Node": "n233",
+        "End_Node": "n236",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p75",
+        "Start_Node": "n231",
+        "End_Node": "n233",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p159",
+        "Start_Node": "n233",
+        "End_Node": "n237",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p680",
+        "Start_Node": "n626",
+        "End_Node": "n233",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 0.4631360762046989,
+        "Recoverable_ML_per_day": 0.3705088609637592,
+        "Repair_Cost_INR": 500000.0,
+        "Recoverable_ML_per_1Lakh": 0.0741017721927518,
+        "Recommendation": "Investigate"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n264",
+    "City": "Bengaluru",
+    "Area": "HSR Layout",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p214",
+        "Start_Node": "n264",
+        "End_Node": "n266",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p752",
+        "Start_Node": "n677",
+        "End_Node": "n264",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p762",
+        "Start_Node": "n683",
+        "End_Node": "n264",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 1.341792,
+        "Recoverable_ML_per_day": 1.0734336,
+        "Repair_Cost_INR": 1000000.0,
+        "Recoverable_ML_per_1Lakh": 0.10734336,
+        "Recommendation": "Critical Water Loss"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n326",
+    "City": "Bengaluru",
+    "Area": "Electronic City",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p192",
+        "Start_Node": "n325",
+        "End_Node": "n326",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p193",
+        "Start_Node": "n326",
+        "End_Node": "n327",
+        "Is_Candidate": true,
+        "Network_Region": 1.0,
+        "Predicted_Loss_ML_per_day": 0.8819147345454558,
+        "Recoverable_ML_per_day": 0.7055317876363647,
+        "Repair_Cost_INR": 200000.0,
+        "Recoverable_ML_per_1Lakh": 0.3527658938181823,
+        "Recommendation": "High Water Loss"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n327",
+    "City": "Bengaluru",
+    "Area": "Electronic City",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p71",
+        "Start_Node": "n328",
+        "End_Node": "n327",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p193",
+        "Start_Node": "n326",
+        "End_Node": "n327",
+        "Is_Candidate": true,
+        "Network_Region": 1.0,
+        "Predicted_Loss_ML_per_day": 0.8819147345454558,
+        "Recoverable_ML_per_day": 0.7055317876363647,
+        "Repair_Cost_INR": 200000.0,
+        "Recoverable_ML_per_1Lakh": 0.3527658938181823,
+        "Recommendation": "High Water Loss"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n340",
+    "City": "Bengaluru",
+    "Area": "Bommanahalli",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p427",
+        "Start_Node": "n462",
+        "End_Node": "n340",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 0.4297606829570429,
+        "Recoverable_ML_per_day": 0.3438085463656343,
+        "Repair_Cost_INR": 200000.0,
+        "Recoverable_ML_per_1Lakh": 0.1719042731828171,
+        "Recommendation": "Investigate"
+      },
+      {
+        "Pipe": "p894",
+        "Start_Node": "n776",
+        "End_Node": "n340",
+        "Is_Candidate": false
+      }
+    ]
+  },
+  {
+    "Node_ID": "n350",
+    "City": "Bengaluru",
+    "Area": "Hulimavu",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p256",
+        "Start_Node": "n349",
+        "End_Node": "n350",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p257",
+        "Start_Node": "n350",
+        "End_Node": "n351",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 0.5849280000000125,
+        "Recoverable_ML_per_day": 0.4679424000000101,
+        "Repair_Cost_INR": 200000.0,
+        "Recoverable_ML_per_1Lakh": 0.233971200000005,
+        "Recommendation": "Cost Efficient"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n351",
+    "City": "Bengaluru",
+    "Area": "Hulimavu",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p257",
+        "Start_Node": "n350",
+        "End_Node": "n351",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 0.5849280000000125,
+        "Recoverable_ML_per_day": 0.4679424000000101,
+        "Repair_Cost_INR": 200000.0,
+        "Recoverable_ML_per_1Lakh": 0.233971200000005,
+        "Recommendation": "Cost Efficient"
+      },
+      {
+        "Pipe": "p258",
+        "Start_Node": "n351",
+        "End_Node": "n7",
+        "Is_Candidate": false
+      }
+    ]
+  },
+  {
+    "Node_ID": "n363",
+    "City": "Bengaluru",
+    "Area": "JP Nagar",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p276",
+        "Start_Node": "n362",
+        "End_Node": "n363",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p277",
+        "Start_Node": "n363",
+        "End_Node": "n19",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 0.6298283999999998,
+        "Recoverable_ML_per_day": 0.5038627199999999,
+        "Repair_Cost_INR": 200000.0,
+        "Recoverable_ML_per_1Lakh": 0.2519313599999999,
+        "Recommendation": "Cost Efficient"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n365",
+    "City": "Bengaluru",
+    "Area": "Arekere",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p279",
+        "Start_Node": "n364",
+        "End_Node": "n365",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p280",
+        "Start_Node": "n365",
+        "End_Node": "n23",
+        "Is_Candidate": true,
+        "Network_Region": 3.0,
+        "Predicted_Loss_ML_per_day": 0.4501905142857144,
+        "Recoverable_ML_per_day": 0.3601524114285715,
+        "Repair_Cost_INR": 200000.0,
+        "Recoverable_ML_per_1Lakh": 0.1800762057142857,
+        "Recommendation": "Investigate"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n398",
+    "City": "Bengaluru",
+    "Area": "Bannerghatta Road",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p330",
+        "Start_Node": "n397",
+        "End_Node": "n398",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p331",
+        "Start_Node": "n398",
+        "End_Node": "n399",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 0.9115200000000044,
+        "Recoverable_ML_per_day": 0.7292160000000035,
+        "Repair_Cost_INR": 500000.0,
+        "Recoverable_ML_per_1Lakh": 0.1458432000000007,
+        "Recommendation": "High Water Loss"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n399",
+    "City": "Bengaluru",
+    "Area": "Bannerghatta Road",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p331",
+        "Start_Node": "n398",
+        "End_Node": "n399",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 0.9115200000000044,
+        "Recoverable_ML_per_day": 0.7292160000000035,
+        "Repair_Cost_INR": 500000.0,
+        "Recoverable_ML_per_1Lakh": 0.1458432000000007,
+        "Recommendation": "High Water Loss"
+      },
+      {
+        "Pipe": "p332",
+        "Start_Node": "n399",
+        "End_Node": "n75",
+        "Is_Candidate": false
+      }
+    ]
+  },
+  {
+    "Node_ID": "n461",
+    "City": "Bengaluru",
+    "Area": "BTM Layout",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p425",
+        "Start_Node": "n90",
+        "End_Node": "n461",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p426",
+        "Start_Node": "n461",
+        "End_Node": "n462",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 1.1448,
+        "Recoverable_ML_per_day": 0.91584,
+        "Repair_Cost_INR": 500000.0,
+        "Recoverable_ML_per_1Lakh": 0.183168,
+        "Recommendation": "Critical Water Loss"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n462",
+    "City": "Bengaluru",
+    "Area": "BTM Layout",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p426",
+        "Start_Node": "n461",
+        "End_Node": "n462",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 1.1448,
+        "Recoverable_ML_per_day": 0.91584,
+        "Repair_Cost_INR": 500000.0,
+        "Recoverable_ML_per_1Lakh": 0.183168,
+        "Recommendation": "Critical Water Loss"
+      },
+      {
+        "Pipe": "p427",
+        "Start_Node": "n462",
+        "End_Node": "n340",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 0.4297606829570429,
+        "Recoverable_ML_per_day": 0.3438085463656343,
+        "Repair_Cost_INR": 200000.0,
+        "Recoverable_ML_per_1Lakh": 0.1719042731828171,
+        "Recommendation": "Investigate"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n480",
+    "City": "Bengaluru",
+    "Area": "Jayanagar",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p454",
+        "Start_Node": "n479",
+        "End_Node": "n480",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p455",
+        "Start_Node": "n480",
+        "End_Node": "n481",
+        "Is_Candidate": true,
+        "Network_Region": 3.0,
+        "Predicted_Loss_ML_per_day": 0.946944,
+        "Recoverable_ML_per_day": 0.7575552000000002,
+        "Repair_Cost_INR": 200000.0,
+        "Recoverable_ML_per_1Lakh": 0.3787776000000001,
+        "Recommendation": "High Water Loss"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n481",
+    "City": "Bengaluru",
+    "Area": "Jayanagar",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p455",
+        "Start_Node": "n480",
+        "End_Node": "n481",
+        "Is_Candidate": true,
+        "Network_Region": 3.0,
+        "Predicted_Loss_ML_per_day": 0.946944,
+        "Recoverable_ML_per_day": 0.7575552000000002,
+        "Repair_Cost_INR": 200000.0,
+        "Recoverable_ML_per_1Lakh": 0.3787776000000001,
+        "Recommendation": "High Water Loss"
+      },
+      {
+        "Pipe": "p456",
+        "Start_Node": "n481",
+        "End_Node": "n104",
+        "Is_Candidate": false
+      }
+    ]
+  },
+  {
+    "Node_ID": "n609",
+    "City": "Bengaluru",
+    "Area": "Begur",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p653",
+        "Start_Node": "n608",
+        "End_Node": "n609",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p654",
+        "Start_Node": "n609",
+        "End_Node": "n610",
+        "Is_Candidate": true,
+        "Network_Region": 4.0,
+        "Predicted_Loss_ML_per_day": 0.4665600000000008,
+        "Recoverable_ML_per_day": 0.3732480000000007,
+        "Repair_Cost_INR": 200000.0,
+        "Recoverable_ML_per_1Lakh": 0.1866240000000003,
+        "Recommendation": "Cost Efficient"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n610",
+    "City": "Bengaluru",
+    "Area": "Begur",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p654",
+        "Start_Node": "n609",
+        "End_Node": "n610",
+        "Is_Candidate": true,
+        "Network_Region": 4.0,
+        "Predicted_Loss_ML_per_day": 0.4665600000000008,
+        "Recoverable_ML_per_day": 0.3732480000000007,
+        "Repair_Cost_INR": 200000.0,
+        "Recoverable_ML_per_1Lakh": 0.1866240000000003,
+        "Recommendation": "Cost Efficient"
+      },
+      {
+        "Pipe": "p655",
+        "Start_Node": "n610",
+        "End_Node": "n611",
+        "Is_Candidate": false
+      }
+    ]
+  },
+  {
+    "Node_ID": "n626",
+    "City": "Bengaluru",
+    "Area": "HSR Layout",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p679",
+        "Start_Node": "n211",
+        "End_Node": "n626",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p680",
+        "Start_Node": "n626",
+        "End_Node": "n233",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 0.4631360762046989,
+        "Recoverable_ML_per_day": 0.3705088609637592,
+        "Repair_Cost_INR": 500000.0,
+        "Recoverable_ML_per_1Lakh": 0.0741017721927518,
+        "Recommendation": "Investigate"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n648",
+    "City": "Bengaluru",
+    "Area": "Bannerghatta Road",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p709",
+        "Start_Node": "n647",
+        "End_Node": "n648",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p710",
+        "Start_Node": "n648",
+        "End_Node": "n228",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 0.4717403999999983,
+        "Recoverable_ML_per_day": 0.3773923199999986,
+        "Repair_Cost_INR": 500000.0,
+        "Recoverable_ML_per_1Lakh": 0.0754784639999997,
+        "Recommendation": "Investigate"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n655",
+    "City": "Bengaluru",
+    "Area": "JP Nagar",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p720",
+        "Start_Node": "n225",
+        "End_Node": "n655",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p721",
+        "Start_Node": "n655",
+        "End_Node": "n656",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 1.11888,
+        "Recoverable_ML_per_day": 0.895104,
+        "Repair_Cost_INR": 1000000.0,
+        "Recoverable_ML_per_1Lakh": 0.0895104,
+        "Recommendation": "Critical Water Loss"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n656",
+    "City": "Bengaluru",
+    "Area": "JP Nagar",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p721",
+        "Start_Node": "n655",
+        "End_Node": "n656",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 1.11888,
+        "Recoverable_ML_per_day": 0.895104,
+        "Repair_Cost_INR": 1000000.0,
+        "Recoverable_ML_per_1Lakh": 0.0895104,
+        "Recommendation": "Critical Water Loss"
+      },
+      {
+        "Pipe": "p722",
+        "Start_Node": "n656",
+        "End_Node": "n657",
+        "Is_Candidate": false
+      }
+    ]
+  },
+  {
+    "Node_ID": "n683",
+    "City": "Bengaluru",
+    "Area": "Akshayanagar",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p761",
+        "Start_Node": "n262",
+        "End_Node": "n683",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p762",
+        "Start_Node": "n683",
+        "End_Node": "n264",
+        "Is_Candidate": true,
+        "Network_Region": 2.0,
+        "Predicted_Loss_ML_per_day": 1.341792,
+        "Recoverable_ML_per_day": 1.0734336,
+        "Repair_Cost_INR": 1000000.0,
+        "Recoverable_ML_per_1Lakh": 0.10734336,
+        "Recommendation": "Critical Water Loss"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n716",
+    "City": "Bengaluru",
+    "Area": "Electronic City",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p809",
+        "Start_Node": "n715",
+        "End_Node": "n716",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p810",
+        "Start_Node": "n716",
+        "End_Node": "n717",
+        "Is_Candidate": true,
+        "Network_Region": 1.0,
+        "Predicted_Loss_ML_per_day": 0.5864294896303802,
+        "Recoverable_ML_per_day": 0.4691435917043041,
+        "Repair_Cost_INR": 500000.0,
+        "Recoverable_ML_per_1Lakh": 0.0938287183408608,
+        "Recommendation": "Investigate"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n717",
+    "City": "Bengaluru",
+    "Area": "Electronic City",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p810",
+        "Start_Node": "n716",
+        "End_Node": "n717",
+        "Is_Candidate": true,
+        "Network_Region": 1.0,
+        "Predicted_Loss_ML_per_day": 0.5864294896303802,
+        "Recoverable_ML_per_day": 0.4691435917043041,
+        "Repair_Cost_INR": 500000.0,
+        "Recoverable_ML_per_1Lakh": 0.0938287183408608,
+        "Recommendation": "Investigate"
+      },
+      {
+        "Pipe": "p811",
+        "Start_Node": "n717",
+        "End_Node": "n313",
+        "Is_Candidate": false
+      }
+    ]
+  },
+  {
+    "Node_ID": "n765",
+    "City": "Bengaluru",
+    "Area": "Sarjapur Road",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p878",
+        "Start_Node": "n319",
+        "End_Node": "n765",
+        "Is_Candidate": false
+      },
+      {
+        "Pipe": "p879",
+        "Start_Node": "n765",
+        "End_Node": "n766",
+        "Is_Candidate": true,
+        "Network_Region": 1.0,
+        "Predicted_Loss_ML_per_day": 0.944352,
+        "Recoverable_ML_per_day": 0.7554816000000001,
+        "Repair_Cost_INR": 500000.0,
+        "Recoverable_ML_per_1Lakh": 0.15109632,
+        "Recommendation": "High Water Loss"
+      }
+    ]
+  },
+  {
+    "Node_ID": "n766",
+    "City": "Bengaluru",
+    "Area": "Sarjapur Road",
+    "Location_Type": "Demo / Simulated",
+    "Connected_Pipes": [
+      {
+        "Pipe": "p879",
+        "Start_Node": "n765",
+        "End_Node": "n766",
+        "Is_Candidate": true,
+        "Network_Region": 1.0,
+        "Predicted_Loss_ML_per_day": 0.944352,
+        "Recoverable_ML_per_day": 0.7554816000000001,
+        "Repair_Cost_INR": 500000.0,
+        "Recoverable_ML_per_1Lakh": 0.15109632,
+        "Recommendation": "High Water Loss"
+      },
+      {
+        "Pipe": "p880",
+        "Start_Node": "n766",
+        "End_Node": "n767",
+        "Is_Candidate": false
+      }
+    ]
+  }
+]

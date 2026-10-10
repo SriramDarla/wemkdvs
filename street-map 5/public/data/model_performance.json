@@ -1,0 +1,186 @@
+[
+  {
+    "Leak_Location": "p142",
+    "Model_MAE": "0.0",
+    "Baseline_MAE": "3.591523564905415",
+    "Improvement_%": "100.0",
+    "Actual_Mean": "0.0",
+    "Predicted_Mean": "0.0"
+  },
+  {
+    "Leak_Location": "p523",
+    "Model_MAE": "0.0",
+    "Baseline_MAE": "1.8148079745596872",
+    "Improvement_%": "100.0",
+    "Actual_Mean": "0.0",
+    "Predicted_Mean": "0.0"
+  },
+  {
+    "Leak_Location": "p514",
+    "Model_MAE": "0.0",
+    "Baseline_MAE": "3.066792237442923",
+    "Improvement_%": "100.0",
+    "Actual_Mean": "0.0",
+    "Predicted_Mean": "0.0"
+  },
+  {
+    "Leak_Location": "p827",
+    "Model_MAE": "0.0",
+    "Baseline_MAE": "1.396027804957599",
+    "Improvement_%": "100.0",
+    "Actual_Mean": "0.0",
+    "Predicted_Mean": "0.0"
+  },
+  {
+    "Leak_Location": "p653",
+    "Model_MAE": "0.0",
+    "Baseline_MAE": "2.1318570613176777",
+    "Improvement_%": "100.0",
+    "Actual_Mean": "0.0",
+    "Predicted_Mean": "0.0"
+  },
+  {
+    "Leak_Location": "p680",
+    "Model_MAE": "0.00038175370224794976",
+    "Baseline_MAE": "3.9957094386460814",
+    "Improvement_%": "99.99044590934075",
+    "Actual_Mean": "5.362729578893963",
+    "Predicted_Mean": "5.362627939927843"
+  },
+  {
+    "Leak_Location": "p193",
+    "Model_MAE": "0.0016434045489959431",
+    "Baseline_MAE": "7.276145085888237",
+    "Improvement_%": "99.97741380181955",
+    "Actual_Mean": "10.180759132420091",
+    "Predicted_Mean": "10.180117923559282"
+  },
+  {
+    "Leak_Location": "p331",
+    "Model_MAE": "0.0011277605503645918",
+    "Baseline_MAE": "4.438921867072552",
+    "Improvement_%": "99.97459381840599",
+    "Actual_Mean": "10.483959918822933",
+    "Predicted_Mean": "10.483947106653352"
+  },
+  {
+    "Leak_Location": "p710",
+    "Model_MAE": "0.0005495242284808156",
+    "Baseline_MAE": "1.7255676052765092",
+    "Improvement_%": "99.96815400180205",
+    "Actual_Mean": "5.435797818366311",
+    "Predicted_Mean": "5.435667306174128"
+  },
+  {
+    "Leak_Location": "p277",
+    "Model_MAE": "0.001953926091040756",
+    "Baseline_MAE": "5.611714639051968",
+    "Improvement_%": "99.96518129989285",
+    "Actual_Mean": "7.225116057838661",
+    "Predicted_Mean": "7.224851911860068"
+  },
+  {
+    "Leak_Location": "p280",
+    "Model_MAE": "0.0009354968711142735",
+    "Baseline_MAE": "0.8180262466478216",
+    "Improvement_%": "99.88563974873082",
+    "Actual_Mean": "5.183393581938103",
+    "Predicted_Mean": "5.183120269411691"
+  },
+  {
+    "Leak_Location": "p654",
+    "Model_MAE": "0.00023176928542658872",
+    "Baseline_MAE": "0.043918342641905486",
+    "Improvement_%": "99.47227224097148",
+    "Actual_Mean": "5.37859398782344",
+    "Predicted_Mean": "5.378482038235607"
+  },
+  {
+    "Leak_Location": "p257",
+    "Model_MAE": "0.0008669896582187171",
+    "Baseline_MAE": "0.05751581587067706",
+    "Improvement_%": "98.49260652032109",
+    "Actual_Mean": "6.702146752917302",
+    "Predicted_Mean": "6.70232703261779"
+  },
+  {
+    "Leak_Location": "p810",
+    "Model_MAE": "0.0013658300802296911",
+    "Baseline_MAE": "0.06180252983533537",
+    "Improvement_%": "97.79000943186506",
+    "Actual_Mean": "6.769169837645864",
+    "Predicted_Mean": "6.76885158480572"
+  },
+  {
+    "Leak_Location": "p427",
+    "Model_MAE": "0.0032826218701765054",
+    "Baseline_MAE": "0.06762317644219062",
+    "Improvement_%": "95.1457147639571",
+    "Actual_Mean": "4.949594748858447",
+    "Predicted_Mean": "4.952788230196756"
+  },
+  {
+    "Leak_Location": "p721",
+    "Model_MAE": "7.552135562458389",
+    "Baseline_MAE": "12.432496104225557",
+    "Improvement_%": "39.25487288195031",
+    "Actual_Mean": "12.906156139015728",
+    "Predicted_Mean": "5.354020576557338"
+  },
+  {
+    "Leak_Location": "p123",
+    "Model_MAE": "8.024831303906646",
+    "Baseline_MAE": "8.024831303906646",
+    "Improvement_%": "0.0",
+    "Actual_Mean": "8.024831303906646",
+    "Predicted_Mean": "0.0"
+  },
+  {
+    "Leak_Location": "p426",
+    "Model_MAE": "13.189741882293253",
+    "Baseline_MAE": "13.189741882293253",
+    "Improvement_%": "0.0",
+    "Actual_Mean": "13.189741882293253",
+    "Predicted_Mean": "0.0"
+  },
+  {
+    "Leak_Location": "p455",
+    "Model_MAE": "7.5429559868087255",
+    "Baseline_MAE": "7.5429559868087255",
+    "Improvement_%": "0.0",
+    "Actual_Mean": "7.5429559868087255",
+    "Predicted_Mean": "0.0"
+  },
+  {
+    "Leak_Location": "p879",
+    "Model_MAE": "2.7598122780314562",
+    "Baseline_MAE": "2.7598122780314562",
+    "Improvement_%": "0.0",
+    "Actual_Mean": "2.7598122780314562",
+    "Predicted_Mean": "0.0"
+  },
+  {
+    "Leak_Location": "p762",
+    "Model_MAE": "12.583187468290207",
+    "Baseline_MAE": "12.583187468290207",
+    "Improvement_%": "0.0",
+    "Actual_Mean": "12.583187468290207",
+    "Predicted_Mean": "0.0"
+  },
+  {
+    "Leak_Location": "p586",
+    "Model_MAE": "20.261483801204495",
+    "Baseline_MAE": "2.1459627092846274",
+    "Improvement_%": "-844.1675623505503",
+    "Actual_Mean": "0.0",
+    "Predicted_Mean": "20.261483801204495"
+  },
+  {
+    "Leak_Location": "p800",
+    "Model_MAE": "14.367620623970781",
+    "Baseline_MAE": "1.1091329636877578",
+    "Improvement_%": "-1195.3920850210654",
+    "Actual_Mean": "0.0",
+    "Predicted_Mean": "14.367620623970781"
+  }
+]

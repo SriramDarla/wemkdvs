@@ -1,0 +1,453 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.04487096403879412,
+          -0.03146505001200808
+        ]
+      },
+      "properties": {
+        "Region_Priority": "1",
+        "Network_Region": "1",
+        "Pipe_Priority_Within_Region": "1",
+        "Leak_Location": "p762",
+        "Start_Node": "n683",
+        "End_Node": "n264",
+        "Predicted_Loss_ML_per_day": "0.37272",
+        "Recoverable_ML_per_day": "0.298176",
+        "Repair_Cost_INR": "1000000.0",
+        "Recoverable_ML_per_1Lakh": "0.0298176",
+        "Recommendation": "Critical Water Loss",
+        "Pipe": "p762",
+        "Start_X": "2101.51",
+        "Start_Y": "626.53",
+        "End_X": "2080.64",
+        "End_Y": "583.4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.01725404660773734,
+          0.01821332831374177
+        ]
+      },
+      "properties": {
+        "Region_Priority": "1",
+        "Network_Region": "1",
+        "Pipe_Priority_Within_Region": "2",
+        "Leak_Location": "p426",
+        "Start_Node": "n461",
+        "End_Node": "n462",
+        "Predicted_Loss_ML_per_day": "0.318",
+        "Recoverable_ML_per_day": "0.2544",
+        "Repair_Cost_INR": "500000.0",
+        "Recoverable_ML_per_1Lakh": "0.05088",
+        "Recommendation": "Critical Water Loss",
+        "Pipe": "p426",
+        "Start_X": "1231.54",
+        "Start_Y": "1001.12",
+        "End_X": "1272.98",
+        "End_Y": "974.17"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.021611533063497772,
+          -0.02017096901916749
+        ]
+      },
+      "properties": {
+        "Region_Priority": "1",
+        "Network_Region": "1",
+        "Pipe_Priority_Within_Region": "3",
+        "Leak_Location": "p721",
+        "Start_Node": "n655",
+        "End_Node": "n656",
+        "Predicted_Loss_ML_per_day": "0.31079999999999997",
+        "Recoverable_ML_per_day": "0.24863999999999997",
+        "Repair_Cost_INR": "1000000.0",
+        "Recoverable_ML_per_1Lakh": "0.024863999999999997",
+        "Recommendation": "Critical Water Loss",
+        "Pipe": "p721",
+        "Start_X": "1755.94",
+        "Start_Y": "692.12",
+        "End_X": "1798.11",
+        "End_Y": "691.81"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.09858799219377799,
+          -0.008716564003037733
+        ]
+      },
+      "properties": {
+        "Region_Priority": "1",
+        "Network_Region": "1",
+        "Pipe_Priority_Within_Region": "4",
+        "Leak_Location": "p879",
+        "Start_Node": "n765",
+        "End_Node": "n766",
+        "Predicted_Loss_ML_per_day": "0.26232",
+        "Recoverable_ML_per_day": "0.20985600000000001",
+        "Repair_Cost_INR": "500000.0",
+        "Recoverable_ML_per_1Lakh": "0.0419712",
+        "Recommendation": "High Water Loss",
+        "Pipe": "p879",
+        "Start_X": "2814.63",
+        "Start_Y": "805.61",
+        "End_X": "2818.1",
+        "End_Y": "754.79"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.04336563706992641,
+          0.04642321647637655
+        ]
+      },
+      "properties": {
+        "Region_Priority": "1",
+        "Network_Region": "1",
+        "Pipe_Priority_Within_Region": "5",
+        "Leak_Location": "p331",
+        "Start_Node": "n398",
+        "End_Node": "n399",
+        "Predicted_Loss_ML_per_day": "0.25320000000000126",
+        "Recoverable_ML_per_day": "0.20256000000000102",
+        "Repair_Cost_INR": "500000.0",
+        "Recoverable_ML_per_1Lakh": "0.0405120000000002",
+        "Recommendation": "High Water Loss",
+        "Pipe": "p331",
+        "Start_X": "874.41",
+        "Start_Y": "1205.19",
+        "End_X": "924.99",
+        "End_Y": "1204.71"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0940834910254369,
+          -0.04962580243147284
+        ]
+      },
+      "properties": {
+        "Region_Priority": "1",
+        "Network_Region": "1",
+        "Pipe_Priority_Within_Region": "6",
+        "Leak_Location": "p193",
+        "Start_Node": "n326",
+        "End_Node": "n327",
+        "Predicted_Loss_ML_per_day": "0.24497631515151538",
+        "Recoverable_ML_per_day": "0.1959810521212123",
+        "Repair_Cost_INR": "200000.0",
+        "Recoverable_ML_per_1Lakh": "0.09799052606060615",
+        "Recommendation": "High Water Loss",
+        "Pipe": "p193",
+        "Start_X": "2763.89",
+        "Start_Y": "495.26",
+        "End_X": "2747.2",
+        "End_Y": "434.88"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.04369336508159872,
+          -0.009997208934007518
+        ]
+      },
+      "properties": {
+        "Region_Priority": "1",
+        "Network_Region": "1",
+        "Pipe_Priority_Within_Region": "7",
+        "Leak_Location": "p123",
+        "Start_Node": "n155",
+        "End_Node": "n159",
+        "Predicted_Loss_ML_per_day": "0.2172",
+        "Recoverable_ML_per_day": "0.17376000000000003",
+        "Repair_Cost_INR": "500000.0",
+        "Recoverable_ML_per_1Lakh": "0.034752000000000005",
+        "Recommendation": "High Water Loss",
+        "Pipe": "p123",
+        "Start_X": "877.85",
+        "Start_Y": "782.22",
+        "End_X": "912.7",
+        "End_Y": "758.45"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.06873585862887491,
+          -0.058426747499399606
+        ]
+      },
+      "properties": {
+        "Region_Priority": "1",
+        "Network_Region": "1",
+        "Pipe_Priority_Within_Region": "8",
+        "Leak_Location": "p810",
+        "Start_Node": "n716",
+        "End_Node": "n717",
+        "Predicted_Loss_ML_per_day": "0.16289479473859764",
+        "Recoverable_ML_per_day": "0.1303158357908781",
+        "Repair_Cost_INR": "500000.0",
+        "Recoverable_ML_per_1Lakh": "0.02606316715817562",
+        "Recommendation": "Investigate",
+        "Pipe": "p810",
+        "Start_X": "2389.8",
+        "Start_Y": "397.95",
+        "End_X": "2436.8",
+        "End_Y": "396.6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.028950788954269918,
+          0.0061896756521682625
+        ]
+      },
+      "properties": {
+        "Region_Priority": "1",
+        "Network_Region": "1",
+        "Pipe_Priority_Within_Region": "9",
+        "Leak_Location": "p710",
+        "Start_Node": "n648",
+        "End_Node": "n228",
+        "Predicted_Loss_ML_per_day": "0.131038999999999",
+        "Recoverable_ML_per_day": "0.1048311999999992",
+        "Repair_Cost_INR": "500000.0",
+        "Recoverable_ML_per_1Lakh": "0.020966239999999838",
+        "Recommendation": "Investigate",
+        "Pipe": "p710",
+        "Start_X": "1848.07",
+        "Start_Y": "895.32",
+        "End_X": "1904.17",
+        "End_Y": "894.73"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.017439573990616235,
+          -0.05405451016791832
+        ]
+      },
+      "properties": {
+        "Region_Priority": "1",
+        "Network_Region": "1",
+        "Pipe_Priority_Within_Region": "10",
+        "Leak_Location": "p654",
+        "Start_Node": "n609",
+        "End_Node": "n610",
+        "Predicted_Loss_ML_per_day": "0.12960000000000033",
+        "Recoverable_ML_per_day": "0.10368000000000027",
+        "Repair_Cost_INR": "200000.0",
+        "Recoverable_ML_per_1Lakh": "0.051840000000000136",
+        "Recommendation": "Cost Efficient",
+        "Pipe": "p654",
+        "Start_X": "1240.85",
+        "Start_Y": "404.62",
+        "End_X": "1258.66",
+        "End_Y": "457.29"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.014184883036279669,
+          0.014714110461304789
+        ]
+      },
+      "properties": {
+        "Region_Priority": "1",
+        "Network_Region": "1",
+        "Pipe_Priority_Within_Region": "11",
+        "Leak_Location": "p427",
+        "Start_Node": "n462",
+        "End_Node": "n340",
+        "Predicted_Loss_ML_per_day": "0.11939008177378176",
+        "Recoverable_ML_per_day": "0.0955120654190254",
+        "Repair_Cost_INR": "200000.0",
+        "Recoverable_ML_per_1Lakh": "0.0477560327095127",
+        "Recommendation": "Investigate",
+        "Pipe": "p427",
+        "Start_X": "1272.98",
+        "Start_Y": "974.17",
+        "End_X": "1314.42",
+        "End_Y": "947.21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.07694609337100664,
+          0.07390807656608009
+        ]
+      },
+      "properties": {
+        "Region_Priority": "2",
+        "Network_Region": "3",
+        "Pipe_Priority_Within_Region": "1",
+        "Leak_Location": "p277",
+        "Start_Node": "n363",
+        "End_Node": "n19",
+        "Predicted_Loss_ML_per_day": "0.1749523333333333",
+        "Recoverable_ML_per_day": "0.13996186666666663",
+        "Repair_Cost_INR": "200000.0",
+        "Recoverable_ML_per_1Lakh": "0.06998093333333331",
+        "Recommendation": "Cost Efficient",
+        "Pipe": "p277",
+        "Start_X": "452.68",
+        "Start_Y": "1442.27",
+        "End_X": "439.91",
+        "End_Y": "1391.07"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.08800959854244356,
+          0.09380902617760264
+        ]
+      },
+      "properties": {
+        "Region_Priority": "2",
+        "Network_Region": "3",
+        "Pipe_Priority_Within_Region": "2",
+        "Leak_Location": "p257",
+        "Start_Node": "n350",
+        "End_Node": "n351",
+        "Predicted_Loss_ML_per_day": "0.1624800000000035",
+        "Recoverable_ML_per_day": "0.12998400000000282",
+        "Repair_Cost_INR": "200000.0",
+        "Recoverable_ML_per_1Lakh": "0.06499200000000141",
+        "Recommendation": "Cost Efficient",
+        "Pipe": "p257",
+        "Start_X": "275.12",
+        "Start_Y": "1576.83",
+        "End_X": "318.71",
+        "End_Y": "1563.11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.08851618828252006,
+          0.03462414726443079
+        ]
+      },
+      "properties": {
+        "Region_Priority": "2",
+        "Network_Region": "3",
+        "Pipe_Priority_Within_Region": "3",
+        "Leak_Location": "p280",
+        "Start_Node": "n365",
+        "End_Node": "n23",
+        "Predicted_Loss_ML_per_day": "0.12505292063492066",
+        "Recoverable_ML_per_day": "0.10004233650793654",
+        "Repair_Cost_INR": "200000.0",
+        "Recoverable_ML_per_1Lakh": "0.05002116825396827",
+        "Recommendation": "Investigate",
+        "Pipe": "p280",
+        "Start_X": "265.49",
+        "Start_Y": "1114.97",
+        "End_X": "314.66",
+        "End_Y": "1113.15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.09649793920182491,
+          -0.0650474156676165
+        ]
+      },
+      "properties": {
+        "Region_Priority": "3",
+        "Network_Region": "2",
+        "Pipe_Priority_Within_Region": "1",
+        "Leak_Location": "p455",
+        "Start_Node": "n480",
+        "End_Node": "n481",
+        "Predicted_Loss_ML_per_day": "0.26304",
+        "Recoverable_ML_per_day": "0.210432",
+        "Repair_Cost_INR": "200000.0",
+        "Recoverable_ML_per_1Lakh": "0.105216",
+        "Recommendation": "High Water Loss",
+        "Pipe": "p455",
+        "Start_X": "186.07",
+        "Start_Y": "368.64",
+        "End_X": "178.54",
+        "End_Y": "323.91"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.01820093985728094,
+          -0.03682779122826377
+        ]
+      },
+      "properties": {
+        "Region_Priority": "4",
+        "Network_Region": "4",
+        "Pipe_Priority_Within_Region": "1",
+        "Leak_Location": "p680",
+        "Start_Node": "n626",
+        "End_Node": "n233",
+        "Predicted_Loss_ML_per_day": "0.12864891005686083",
+        "Recoverable_ML_per_day": "0.10291912804548867",
+        "Repair_Cost_INR": "500000.0",
+        "Recoverable_ML_per_1Lakh": "0.020583825609097734",
+        "Recommendation": "Investigate",
+        "Pipe": "p680",
+        "Start_X": "1706.96",
+        "Start_Y": "571.61",
+        "End_X": "1754.99",
+        "End_Y": "555.7"
+      }
+    }
+  ]
+}
