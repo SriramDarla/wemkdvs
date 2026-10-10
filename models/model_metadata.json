@@ -1,0 +1,284 @@
+{
+  "model_name": "L-Town Gradient-Boosted & Random Forest SCADA Regressors",
+  "training_date": "2026-10-10 21:20:07",
+  "num_models": 23,
+  "features_count": 39,
+  "feature_columns": [
+    "p227",
+    "p235",
+    "PUMP_1",
+    "n1",
+    "n4",
+    "n31",
+    "n54",
+    "n105",
+    "n114",
+    "n163",
+    "n188",
+    "n215",
+    "n229",
+    "n288",
+    "n296",
+    "n332",
+    "n342",
+    "n410",
+    "n415",
+    "n429",
+    "n458",
+    "n469",
+    "n495",
+    "n506",
+    "n516",
+    "n519",
+    "n549",
+    "n613",
+    "n636",
+    "n644",
+    "n679",
+    "n722",
+    "n726",
+    "n740",
+    "n752",
+    "n769",
+    "hour",
+    "day_of_week",
+    "month"
+  ],
+  "flow_sensors": [
+    "p227",
+    "p235",
+    "PUMP_1"
+  ],
+  "pressure_sensors": [
+    "n1",
+    "n4",
+    "n31",
+    "n54",
+    "n105",
+    "n114",
+    "n163",
+    "n188",
+    "n215",
+    "n229",
+    "n288",
+    "n296",
+    "n332",
+    "n342",
+    "n410",
+    "n415",
+    "n429",
+    "n458",
+    "n469",
+    "n495",
+    "n506",
+    "n516",
+    "n519",
+    "n549",
+    "n613",
+    "n636",
+    "n644",
+    "n679",
+    "n722",
+    "n726",
+    "n740",
+    "n752",
+    "n769"
+  ],
+  "time_features": [
+    "hour",
+    "day_of_week",
+    "month"
+  ],
+  "training_samples": 32064,
+  "test_split_description": "Chronological hold-out test set on December 2019 (rows 96192 to 105120)",
+  "training_time_seconds": 11.08,
+  "model_file": "rf_models.joblib",
+  "model_size_mb": 10.34,
+  "eval_metrics": {
+    "p123": {
+      "train_active_intervals": 21988,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 1.612,
+      "latest_pred_m3h": 5.9616,
+      "benchmark_actual_m3h": 9.05,
+      "pred_loss_ML_day": 0.1431
+    },
+    "p142": {
+      "train_active_intervals": 9955,
+      "test_active_intervals": 0,
+      "test_mae_m3h": 0.0,
+      "latest_pred_m3h": 0.0,
+      "benchmark_actual_m3h": 0.0,
+      "pred_loss_ML_day": 0.0
+    },
+    "p193": {
+      "train_active_intervals": 55897,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 0.0009,
+      "latest_pred_m3h": 10.2098,
+      "benchmark_actual_m3h": 10.21,
+      "pred_loss_ML_day": 0.245
+    },
+    "p257": {
+      "train_active_intervals": 96192,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 0.0008,
+      "latest_pred_m3h": 6.77,
+      "benchmark_actual_m3h": 6.77,
+      "pred_loss_ML_day": 0.1625
+    },
+    "p277": {
+      "train_active_intervals": 52468,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 0.0014,
+      "latest_pred_m3h": 7.29,
+      "benchmark_actual_m3h": 7.29,
+      "pred_loss_ML_day": 0.175
+    },
+    "p280": {
+      "train_active_intervals": 84515,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 0.0009,
+      "latest_pred_m3h": 5.2148,
+      "benchmark_actual_m3h": 5.22,
+      "pred_loss_ML_day": 0.1252
+    },
+    "p331": {
+      "train_active_intervals": 64678,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 0.0008,
+      "latest_pred_m3h": 10.55,
+      "benchmark_actual_m3h": 10.55,
+      "pred_loss_ML_day": 0.2532
+    },
+    "p426": {
+      "train_active_intervals": 10495,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 0.0018,
+      "latest_pred_m3h": 13.2537,
+      "benchmark_actual_m3h": 13.25,
+      "pred_loss_ML_day": 0.3181
+    },
+    "p427": {
+      "train_active_intervals": 96192,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 0.001,
+      "latest_pred_m3h": 4.9727,
+      "benchmark_actual_m3h": 4.97,
+      "pred_loss_ML_day": 0.1193
+    },
+    "p455": {
+      "train_active_intervals": 16373,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 4.8002,
+      "latest_pred_m3h": 3.8552,
+      "benchmark_actual_m3h": 10.96,
+      "pred_loss_ML_day": 0.0925
+    },
+    "p514": {
+      "train_active_intervals": 14620,
+      "test_active_intervals": 0,
+      "test_mae_m3h": 0.0,
+      "latest_pred_m3h": 0.0,
+      "benchmark_actual_m3h": 0.0,
+      "pred_loss_ML_day": 0.0
+    },
+    "p523": {
+      "train_active_intervals": 4739,
+      "test_active_intervals": 0,
+      "test_mae_m3h": 0.0,
+      "latest_pred_m3h": 0.0,
+      "benchmark_actual_m3h": 0.0,
+      "pred_loss_ML_day": 0.0
+    },
+    "p586": {
+      "train_active_intervals": 14694,
+      "test_active_intervals": 0,
+      "test_mae_m3h": 0.0,
+      "latest_pred_m3h": 0.0,
+      "benchmark_actual_m3h": 0.0,
+      "pred_loss_ML_day": 0.0
+    },
+    "p653": {
+      "train_active_intervals": 17899,
+      "test_active_intervals": 0,
+      "test_mae_m3h": 0.0,
+      "latest_pred_m3h": 0.0,
+      "benchmark_actual_m3h": 0.0,
+      "pred_loss_ML_day": 0.0
+    },
+    "p654": {
+      "train_active_intervals": 96192,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 0.0001,
+      "latest_pred_m3h": 5.4,
+      "benchmark_actual_m3h": 5.4,
+      "pred_loss_ML_day": 0.1296
+    },
+    "p680": {
+      "train_active_intervals": 41367,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 0.0004,
+      "latest_pred_m3h": 5.3604,
+      "benchmark_actual_m3h": 5.36,
+      "pred_loss_ML_day": 0.1287
+    },
+    "p710": {
+      "train_active_intervals": 72405,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 0.0004,
+      "latest_pred_m3h": 5.46,
+      "benchmark_actual_m3h": 5.46,
+      "pred_loss_ML_day": 0.131
+    },
+    "p721": {
+      "train_active_intervals": 34520,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 0.0015,
+      "latest_pred_m3h": 12.9499,
+      "benchmark_actual_m3h": 12.95,
+      "pred_loss_ML_day": 0.3108
+    },
+    "p762": {
+      "train_active_intervals": 14860,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 5.1432,
+      "latest_pred_m3h": 7.7723,
+      "benchmark_actual_m3h": 15.53,
+      "pred_loss_ML_day": 0.1865
+    },
+    "p800": {
+      "train_active_intervals": 13184,
+      "test_active_intervals": 0,
+      "test_mae_m3h": 0.0473,
+      "latest_pred_m3h": 0.0,
+      "benchmark_actual_m3h": 0.0,
+      "pred_loss_ML_day": 0.0
+    },
+    "p810": {
+      "train_active_intervals": 96192,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 0.0009,
+      "latest_pred_m3h": 6.79,
+      "benchmark_actual_m3h": 6.79,
+      "pred_loss_ML_day": 0.163
+    },
+    "p827": {
+      "train_active_intervals": 3920,
+      "test_active_intervals": 0,
+      "test_mae_m3h": 0.0,
+      "latest_pred_m3h": 0.0,
+      "benchmark_actual_m3h": 0.0,
+      "pred_loss_ML_day": 0.0
+    },
+    "p879": {
+      "train_active_intervals": 2769,
+      "test_active_intervals": 8928,
+      "test_mae_m3h": 4.6366,
+      "latest_pred_m3h": 0.115,
+      "benchmark_actual_m3h": 10.93,
+      "pred_loss_ML_day": 0.0028
+    }
+  },
+  "scientific_integrity_notice": "Models are trained strictly on SCADA telemetry features (3 flows, 33 pressures, 3 time indicators). No ground-truth leakage data is used at inference time. Model predictions represent estimated volumetric head loss anomalies in m3/h, which require acoustic field confirmation."
+}
