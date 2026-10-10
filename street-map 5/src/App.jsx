@@ -1,10 +1,16 @@
 import { useEffect, useState } from 'react'
 import Landing from './pages/Landing.jsx'
 import MapPage from './pages/MapPage.jsx'
+import InterventionLab from './pages/InterventionLab.jsx'
 
-// Tiny hash router: "#/" is the landing page, "#/map" is the map page.
+// Tiny hash router: "#/" is the landing page, "#/map" is the map page, "#/intervention" is the intervention lab.
 function useRoute() {
-  const read = () => (window.location.hash.startsWith('#/map') ? 'map' : 'home')
+  const read = () => {
+    const hash = window.location.hash
+    if (hash.startsWith('#/map')) return 'map'
+    if (hash.startsWith('#/intervention')) return 'intervention'
+    return 'home'
+  }
   const [route, setRoute] = useState(read)
 
   useEffect(() => {
@@ -21,5 +27,7 @@ function useRoute() {
 
 export default function App() {
   const route = useRoute()
-  return route === 'map' ? <MapPage /> : <Landing />
+  if (route === 'map') return <MapPage />
+  if (route === 'intervention') return <InterventionLab />
+  return <Landing />
 }
