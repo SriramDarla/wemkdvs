@@ -19,9 +19,13 @@ export default function MapPage() {
             className={`nav-tab${activeTab === 'pipeline' ? ' active' : ''}`}
             onClick={() => setActiveTab('pipeline')}
           >🤖 ML Pipeline</button>
+          <a
+            href="#/intervention"
+            className="nav-tab nav-tab-link"
+          >🧪 Intervention Lab</a>
         </div>
 
-        <span className="nav-title">Skyline</span>
+        <span className="nav-title">Leak Detection &amp; Prioritization</span>
       </header>
 
       <main className="map-main">
