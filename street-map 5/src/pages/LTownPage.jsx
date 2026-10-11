@@ -7,6 +7,16 @@ const PRIORITIES_URL = '/data/final_intervention_priorities.json'
 const PIPE_DATA_URL = '/data/pipes.geojson'
 const PRESETS_URL = '/data/scada_presets.json'
 
+// Configurable API base URL:
+// In local development: VITE_API_BASE_URL is empty by default, allowing Vite's dev proxy to forward /api -> http://127.0.0.1:8001.
+// In production builds: uses VITE_API_BASE_URL, falling back to the confirmed AWS API Gateway URL.
+const getApiBaseUrl = () => {
+  const envUrl = (import.meta.env.VITE_API_BASE_URL || '').trim().replace(/\/+$/, '')
+  if (envUrl) return envUrl
+  if (import.meta.env.DEV) return ''
+  return 'https://0o1o890v41.execute-api.us-east-1.amazonaws.com'
+}
+
 const DEFAULT_TELEMETRY = {
   p227: 118.42,
   p235: 62.15,
@@ -477,26 +487,34 @@ export default function LTownPage() {
         },
       }
 
-      // Primary relative request routed via Vite proxy (/api -> backend port 8001)
+      // Dynamic endpoint: Uses API Gateway URL in production, relative path in local dev proxy
+      const apiBase = getApiBaseUrl()
+      const primaryUrl = apiBase ? `${apiBase}/api/predict/ltown` : '/api/predict/ltown'
+
       let res
       try {
-        res = await fetch('/api/predict/ltown', {
+        res = await fetch(primaryUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
         })
-      } catch {
-        // Direct backend fallback to port 8001 if proxy is bypassed
-        res = await fetch('http://127.0.0.1:8001/api/predict/ltown', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        })
+      } catch (networkErr) {
+        // In local development, fallback directly to localhost:8001 if the proxy is bypassed
+        if (import.meta.env.DEV && !apiBase) {
+          res = await fetch('http://127.0.0.1:8001/api/predict/ltown', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          })
+        } else {
+          throw networkErr
+        }
       }
 
       if (!res.ok) {
         const errData = await res.json().catch(() => ({}))
-        throw new Error(errData.detail || `Prediction API responded with HTTP ${res.status}`)
+        const detailMsg = errData.detail || errData.message || `Prediction API responded with HTTP ${res.status}`
+        throw new Error(detailMsg)
       }
 
       const data = await res.json()
@@ -510,8 +528,13 @@ export default function LTownPage() {
       )
     } catch (err) {
       console.error('Failed to execute ML inference:', err)
+      const isLocal = import.meta.env.DEV && !getApiBaseUrl()
       setValidationError(
-        `Inference execution failed: ${err.message}. Please ensure the backend is running (python3 -m uvicorn app:app --port 8001).`
+        `Inference execution failed: ${err.message}. ${
+          isLocal
+            ? 'Please ensure the local backend is running (python3 -m uvicorn app:app --port 8001).'
+            : 'Please verify backend availability and API Gateway connectivity.'
+        }`
       )
     } finally {
       setIsPredicting(false)
