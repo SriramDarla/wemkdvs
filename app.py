@@ -22,6 +22,7 @@ app = FastAPI(
     description="Backend inference engine for SCADA telemetry leak detection and network intervention prioritization.",
     version="2.0.0",
 )
+application = app
 
 # Enable CORS for development with Vite frontend
 app.add_middleware(
@@ -209,6 +210,9 @@ def get_scada_presets():
 
 
 @app.post("/api/predict/ltown")
+@app.post("/api/predict/ltown/")
+@app.post("/api", include_in_schema=False)
+@app.post("/", include_in_schema=False)
 def predict_ltown_leakage(request: TelemetryInferenceRequest):
     """
     Executes real-time machine-learning inference for pipe leakage estimation
